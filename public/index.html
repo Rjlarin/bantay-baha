@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#073b4c">
+  <title>Bantay Baha | Creek Monitor</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">≈</div>
+    <div><p class="eyebrow">BARANGAY FLOOD WATCH</p><h1>Bantay Baha</h1></div>
+    <div class="live"><span></span> LIVE MONITOR</div>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">CREEK SENSOR · CREEK-01</p><h2>Know the water.<br><em>Stay prepared.</em></h2>
+      <p class="intro-copy">A community view of the latest creek readings. Check official barangay updates for instructions.</p></div>
+      <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="waterline"></div></div>
+    </section>
+
+    <section class="current card" aria-labelledby="current-title">
+      <div><p class="eyebrow" id="current-title">CURRENT WATER LEVEL</p><div class="level-row"><span id="current-level" class="level">--</span><span class="unit">cm</span></div><p id="updated-at" class="muted">Waiting for first reading…</p></div>
+      <div id="status-badge" class="status normal"><span class="status-dot"></span><span id="status-text">NO DATA</span></div>
+    </section>
+
+    <section class="analytics" aria-label="Reading analytics">
+      <article class="metric card"><p class="eyebrow">AVERAGE</p><strong id="average">--</strong><span>cm</span></article>
+      <article class="metric card"><p class="eyebrow">LOWEST</p><strong id="minimum">--</strong><span>cm</span></article>
+      <article class="metric card"><p class="eyebrow">HIGHEST</p><strong id="maximum">--</strong><span>cm</span></article>
+      <article class="metric card trend-card"><p class="eyebrow">LAST HOUR TREND</p><strong id="trend">Steady</strong><span id="trend-note">Comparing latest readings</span></article>
+    </section>
+
+    <section class="content-grid">
+      <article class="card chart-card"><div class="section-heading"><div><p class="eyebrow">WATER LEVEL HISTORY</p><h3>Recent trend</h3></div><span class="legend"><i></i> Water level</span></div><div class="chart-wrap"><canvas id="level-chart" aria-label="Line chart showing recent water levels"></canvas></div></article>
+      <article class="card counts-card"><p class="eyebrow">READINGS BY STATUS</p><h3>Current picture</h3><div class="count-row"><span><i class="count-dot green"></i>Normal</span><strong id="count-normal">0</strong></div><div class="count-row"><span><i class="count-dot orange"></i>Alert</span><strong id="count-alert">0</strong></div><div class="count-row"><span><i class="count-dot red"></i>Danger</span><strong id="count-danger">0</strong></div><p class="small-note">Thresholds: Normal &lt; 100 cm · Alert 100–149 cm · Danger ≥ 150 cm</p></article>
+    </section>
+
+    <section class="card readings-card"><div class="section-heading"><div><p class="eyebrow">SENSOR LOG</p><h3>Latest readings</h3></div><span id="reading-total" class="muted">0 readings</span></div><div class="table-scroll"><table><thead><tr><th>Time</th><th>Sensor</th><th>Water level</th><th>Status</th></tr></thead><tbody id="reading-rows"><tr><td colspan="4" class="empty">No readings yet. Start the simulator.</td></tr></tbody></table></div></section>
+
+    <section class="advisory card"><div class="advisory-icon" aria-hidden="true">✦</div><div class="advisory-body"><p class="eyebrow">COMMUNITY ADVISORY · ENGLISH + FILIPINO</p><p id="advisory-text">Generate a short advisory from the latest sensor summary.</p><span id="advisory-source" class="muted"></span></div><button id="generate-advisory" type="button">Generate advisory</button></section>
+    <p id="connection-message" class="connection" role="status"></p>
+  </main>
+  <footer>For awareness only · Follow official barangay and emergency service instructions.</footer>
+</body>
+</html>
