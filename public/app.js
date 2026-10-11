@@ -25,7 +25,7 @@ function showReadings(readings) {
     els.readingRows.innerHTML = '<tr><td colspan="4" class="empty">No readings yet. Start the simulator.</td></tr>';
     els['current-level'].textContent = '--';
     els['status-text'].textContent = 'NO DATA';
-    els.statusBadge.className = 'status no-data';
+    els['statusBadge']className = 'status no-data';
     els['updated-at'].textContent = 'Waiting for first reading…';
     drawChart([]);
     return;
@@ -35,7 +35,7 @@ function showReadings(readings) {
   const status = statusFor(level);
   els['current-level'].textContent = level.toFixed(1);
   els['status-text'].textContent = status.toUpperCase();
-  els.statusBadge.className = `status ${status.toLowerCase()}`;
+  els['status-badge'].className = `status ${status.toLowerCase()}`;
   els['updated-at'].textContent = `Updated ${fmtTime(newest.timestamp)} · ${newest.sensorId}`;
   els.readingRows.innerHTML = readings.slice(0, 10).map((reading) => {
     const kind = statusFor(reading.waterLevelCm);
